@@ -88,19 +88,19 @@ function BlogIndex(props) {
                   ...styles,
                 }}
               >
-                {/* <Link style={{ boxShadow: `none` }} to={node.fields.slug}> */}
-                {/* {title}{" "} */}
-                {/* {node.frontmatter.draft && (
+                <Link style={{ boxShadow: `none` }} to={node.fields.slug}>
+                  {title}{" "}
+                  {node.frontmatter.draft && (
                     <small style={{ color: "fuchsia" }}>Draft</small>
-                  )} */}
-                {/* </Link> */}
+                  )}
+                </Link>
               </h3>
-              {/* <small>{node.frontmatter.date}</small> */}
-              {/* <p
+              <small>{node.frontmatter.date}</small>
+              <p
                 dangerouslySetInnerHTML={{
                   __html: node.frontmatter.description || node.excerpt,
                 }}
-              /> */}
+              />
             </div>
           )
         })}
