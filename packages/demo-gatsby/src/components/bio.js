@@ -32,22 +32,17 @@ import { rhythm } from "../utils/typography"
 
 const fields = [
   {
-    label: "First Name",
-    name: "rawJson.firstName",
-    description: "Enter first name",
+    label: "Title",
+    name: "rawJson.title",
+    description: "title of the page",
     component: "text",
   },
+
   {
-    label: "Last Name",
-    name: "rawJson.lastName",
-    description: "Enter last name",
-    component: "text",
-  },
-  {
-    label: "Location",
-    name: "rawJson.location",
-    description: "Enter where they're based",
-    component: "text",
+    label: "Description",
+    name: "rawJson.description",
+    description: "tell us about the west",
+    component: "textarea",
   },
 ]
 const Bio = () => {
@@ -62,9 +57,9 @@ const Bio = () => {
       }
       dataJson(fileRelativePath: { eq: "/data/author.json" }) {
         id
-        firstName
-        lastName
-        location
+        title
+
+        description
         social {
           twitter
         }
@@ -75,7 +70,7 @@ const Bio = () => {
   `)
 
   const [author] = useJsonForm(data.dataJson, {
-    label: "Author",
+    label: "Bio",
     fields,
   })
 
@@ -90,7 +85,7 @@ const Bio = () => {
         display: `flex`,
       }}
     >
-      <Image
+      {/* <Image
         fixed={data.avatar.childImageSharp.fixed}
         alt={`${author.firstName}_${author.lastName}`}
         style={{
@@ -102,17 +97,20 @@ const Bio = () => {
         imgStyle={{
           borderRadius: `50%`,
         }}
-      />
+      /> */}
       <div style={{ display: "flex", flexDirection: "column" }}>
-        <span style={{ fontWeight: "600" }}>Author</span>
-        <a
+        {/* <span style={{ fontWeight: "600" }}>Author</span> */}
+        {/* <a
           href={`https://twitter.com/${author.twitter}`}
           style={{
             color: "inherit",
           }}
-        >
-          {author.firstName} {author.lastName}
-        </a>
+        > */}
+        <h1 style={{ textAlign: "center", fontSize: "50px" }}>
+          {author.title}
+        </h1>
+        <p>{author.description}</p>
+        {/* </a> */}
       </div>
     </div>
   )
